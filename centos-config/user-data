@@ -1,0 +1,9 @@
+#cloud-config
+users:
+  - name: ahmed
+    groups: wheel
+    passwd: $1$SaltSalt$ifMgCZKwjt2CzK4.GcCTm.
+    lock-passwd: false
+    ssh_authorized_keys: 
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCzxvaJQTwo3LmTmNVps2Tp5j9DH/5FblDL3m54C0bAJKthzKwxKEG0E+rKG4Vn/S0BaF/4PXdUI0ECJ7moeTCtiVUGaHDCZVZvZRhGoQ7TXoJBLkfJwWAme/5cgOKFLl1FuQ+Z4/zN/gU8l4CZ6toYfka6DVpCCF7gdy2D3vfqepaMCr1JMfKYMKdIvscVGA0jzRnvwvB+GTZxj5ns2SZqVb6O3jYNTmQzQn/X3UisYPxNLnrwHB2Hd1j+0ZEZodWbMI2YK9eDt9hTxvqr6kDgHhMfFhyVkHfvsCT4I0pIECMOaTk+d3euXOKplarqL82RzbvGStZKKuuGG0drTDaR+/ceCcG6CFlIt2KMb8aZoMZzeU0qWiMT3y1g4fBfAHJZMnoV6g7NTQgLIl3HlvIx4qwfY+i3d8fvw7N4mi5zVg94cfuOFjKpsu2wXY8JGmK4Ld8CZ+imjnVbQ0mKv+t/0gWOQs3KI96Hr35AGELaBRRq7ZImQYwlFVD/lrZNofc=
+    shell: /bin/bash
