@@ -3,18 +3,6 @@
 set -e
 
 die() { echo "ERR: $@" >&2 ; exit 2 ; }
-ok() { echo "${@:-OK}" ; }
-
-function usage() {
-    cat << EOF
-NAME
-    create-vm - Deploy cloud VM on KVM
-COMMANDS
-    ./create-vm vm_name disk_size distr vcpus_count ram
-    ./create-vm test 40G (centos or ubuntu) 2 2048M
-EOF
-    exit 0
-}
 
 function prechecks() {
     test -f $ISO_PATH/centos8.qcow2 || die "Check centos8 cloud image exists"
@@ -94,3 +82,5 @@ virt-install --ram ${RAM} \
 --graphics none \
 --noautoconsole \
 --import
+
+virsh autostart $VM_NAME
