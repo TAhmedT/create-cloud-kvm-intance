@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ex
+set -e
 
 die() { echo "ERR: $@" >&2 ; exit 2 ; }
 ok() { echo "${@:-OK}" ; }
