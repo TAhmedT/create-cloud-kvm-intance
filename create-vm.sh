@@ -78,7 +78,7 @@ virt-install --ram ${RAM} \
 --disk path=${LIBVIRT_IMAGES_PATH}/${VM_NAME}.qcow2,format=qcow2 \
 --disk path=${LIBVIRT_IMAGES_PATH}/config.iso,device=cdrom \
 --os-variant ${OS_VARIANT} \
---network network=default,model=virtio \
+--network network=virbr0,model=virtio \
 --graphics none \
 --noautoconsole \
 --import
