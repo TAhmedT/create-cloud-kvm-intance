@@ -23,9 +23,17 @@ function prechecks() {
 }
 
 function cleanup_vm() {
+
     virsh destroy $VM_NAME || true
     virsh undefine $VM_NAME || true
     rm -rf $LIBVIRT_IMAGES_PATH
+    lvremove cloud00/$VM_NAME || true
+}
+
+function create_disk() {
+
+    lvcreate -n cloud00/$VM_NAME -L $DISK_SIZE
+    qemu-img convert $ISO_PATH/$IMAGE_NAME -O raw /dev/mapper/cloud00-${VOLUME_NAME}
 }
 
 
@@ -37,6 +45,7 @@ RAM=${5:-2048M}
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 ISO_PATH="${SCRIPT_DIR}/ISO"
 LIBVIRT_IMAGES_PATH=/var/lib/libvirt/images/$VM_NAME
+VOLUME_NAME="${VM_NAME//-/--}"
 CLOUD_INIT_CONFIG_PATH=""
 IMAGE_NAME=""
 OS_VARIANT=""
@@ -46,6 +55,9 @@ prechecks
 
 echo "Cleanup old VM"
 cleanup_vm
+
+echo "Create disk"
+create_disk
 
 echo "Generate cloud-init config"
 cat  > $CLOUD_INIT_CONFIG_PATH/meta-data << EOF
@@ -58,24 +70,17 @@ genisoimage -output $SCRIPT_DIR/config.iso -V cidata -r -J $CLOUD_INIT_CONFIG_PA
 $CLOUD_INIT_CONFIG_PATH/meta-data \
 $CLOUD_INIT_CONFIG_PATH/network-config
 
-echo "Copy images to libvirt dir"
+echo "Copy cloud-init config to libvirt dir"
 mkdir $LIBVIRT_IMAGES_PATH
 cp $SCRIPT_DIR/config.iso $LIBVIRT_IMAGES_PATH/
-cp $ISO_PATH/$IMAGE_NAME $LIBVIRT_IMAGES_PATH/${VM_NAME}.qcow2
 rm $SCRIPT_DIR/config.iso
-
-echo "Change root pass"
-virt-customize -a $LIBVIRT_IMAGES_PATH/${VM_NAME}.qcow2 --root-password password:root
-
-echo "Resize QCOW disk size"
-qemu-img resize $LIBVIRT_IMAGES_PATH/${VM_NAME}.qcow2 $DISK_SIZE
 
 
 echo "Create VM"
 virt-install --ram ${RAM} \
 --vcpus ${VCPUS} \
 --name ${VM_NAME} \
---disk path=${LIBVIRT_IMAGES_PATH}/${VM_NAME}.qcow2,format=qcow2 \
+--disk path=/dev/mapper/cloud00-${VOLUME_NAME} \
 --disk path=${LIBVIRT_IMAGES_PATH}/config.iso,device=cdrom \
 --os-variant ${OS_VARIANT} \
 --network network=virbr0,model=virtio \
