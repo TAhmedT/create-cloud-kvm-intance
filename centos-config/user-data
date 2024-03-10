@@ -6,7 +6,7 @@ users:
     lock-passwd: false
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh_authorized_keys: 
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCzxvaJQTwo3LmTmNVps2Tp5j9DH/5FblDL3m54C0bAJKthzKwxKEG0E+rKG4Vn/S0BaF/4PXdUI0ECJ7moeTCtiVUGaHDCZVZvZRhGoQ7TXoJBLkfJwWAme/5cgOKFLl1FuQ+Z4/zN/gU8l4CZ6toYfka6DVpCCF7gdy2D3vfqepaMCr1JMfKYMKdIvscVGA0jzRnvwvB+GTZxj5ns2SZqVb6O3jYNTmQzQn/X3UisYPxNLnrwHB2Hd1j+0ZEZodWbMI2YK9eDt9hTxvqr6kDgHhMfFhyVkHfvsCT4I0pIECMOaTk+d3euXOKplarqL82RzbvGStZKKuuGG0drTDaR+/ceCcG6CFlIt2KMb8aZoMZzeU0qWiMT3y1g4fBfAHJZMnoV6g7NTQgLIl3HlvIx4qwfY+i3d8fvw7N4mi5zVg94cfuOFjKpsu2wXY8JGmK4Ld8CZ+imjnVbQ0mKv+t/0gWOQs3KI96Hr35AGELaBRRq7ZImQYwlFVD/lrZNofc=
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDm9JZJJHtuso+GRrNg5fSV7ZD025lvrI6b1D0T2ISm0450ZexQEZvzaReUhvquPeq/8XeU+cyizoSDCog+rqQqfkexdD+lbw+baY+8F/mMxThrWCKHbt9c5XYpjXPjO/os0ZHz8qYhMtXPlBgeMZllQnd2LmXQbeDJWVlm+pGaAmgzVrnqkQrgVoK/D2y/ThLdWCZ6XMH+zuBUZGlZx6OF27gIH6E4u/pnsvYKItNbtsSGodFPxPKn0gDId/n298NFFfp8NbagEVOL0/Vf00tOA9aDMDLKJ+tfZm9rXMWjwJYzoXdhy3dYsYPyz0fBj82rrjwfvyDHTJB3q2wAq3WuVPIco2Ufr2Z3ljGe+gLIUQBHMx/7ubbA0LY6K1ZEhpUgTXIylRnpPtCW5hXNi/rjciciRgrST7IBEnzQ8+AF/wXwZ7BjCOL7btH4/tb5bgu3q9tX8r0p++DbtM+SizR8BL3B7DcRb2oUlvuwMbTHMw3bteCwVkZUZ1bCDnLdORc=
     shell: /bin/bash
 
 package_update: true
