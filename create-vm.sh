@@ -100,8 +100,7 @@ network:
           address: ${IP_ADDRESS}/${SUBNET}
           gateway: ${DEFAULT_GATEWAY}
           dns_nameservers:
-            - 8.8.8.8
-            - 8.8.4.4
+            - ${DEFAULT_GATEWAY}
 EOF
 
     else
@@ -116,8 +115,7 @@ network:
       gateway4: ${DEFAULT_GATEWAY}
       nameservers:
         addresses:
-            - 8.8.8.8
-            - 8.8.4.4
+            - ${DEFAULT_GATEWAY}
 EOF
     fi    
 
