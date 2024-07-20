@@ -1,8 +1,9 @@
 # create-cloud-kvm-intance
 
 ## Command
-    ./create-vm vm_name disk_size distr vcpus_count ram
-    ./create-vm test 40G (centos or ubuntu) 2 2048M
+```shell
+sudo ./create-vm.sh --name VM_NAME --vcpus CPU_COUNT --memory MEMORY_AMOUNT --disk DISK_SIZE --distr ubuntu/centos --ip IP_ADDR --subnet SUBNET_CIDR --gateway DEFAULT_GATEWAY
+```
 
 ## Cloud images
 ```
