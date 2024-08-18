@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 VM_NAME="test"
-VOLUME_NAME="${VM_NAME//-/--}"
 LIBVIRT_IMAGES_PATH=/var/lib/libvirt/images/$VM_NAME
 
 function usage() {
