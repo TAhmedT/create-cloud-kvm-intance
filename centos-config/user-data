@@ -6,7 +6,7 @@ users:
     lock-passwd: false
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh_authorized_keys: 
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDZIBzRDRFr22tkEDGNVqjwdBMiHlN0kJdmPBUtKyUO3K+PKmAO6pzqBw/2mrdLTy26OVtPzjHXrUxtAyw6buYe/7dhf12C3qXbsQUju9AYGUBDsvYX7qgLVVG3SsHExGiMnkpFYYcJUPltYrqVeH0FsbKTzPpzDYN6lQRelVKkjkZVVLFQQoGvOnL1BF76WKcW5t/Wj/MZLYs0c9sPh3pwZYH6f30LY2M2KFpbB5SSlWAhSzDlX7XQDRMONwFuo88DWPiSVLaJSkKnpeNQsCpWwUMFVOCu3t7xez4Ew00XCrHW2Ocx69BOpihk1GTZ5IAe8XSNDv/VMr6mhl/k18+keSwqS1UGk/ih8ntZHYfJ6mqrHDs6qoBOD5oCLbyNWr2Aw7guzsfXn43ruYKCWSSc2SrRHOK6sJEW1bh8BJv8shfHCbmBSVazN/ol85ZVjvklTKBtivwTPkgdS0Ap9nyn/VBM1riUkRtkMU2SD+fV9O3Pl8Vb6uA6C+cYxdQqv1s=
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGng3wpbsBWg2VgBb81mpoHUJIKo2/mVyr5qM7nXFwzi ahmedtaaev@perfectpanel.com
     shell: /bin/bash
 
 package_update: true
