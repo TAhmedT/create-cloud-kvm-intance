@@ -5,6 +5,13 @@
 sudo apt install qemu-kvm libvirt-daemon-system virtinst libvirt-clients bridge-utils genisoimage
 ```
 
+## LVM Volume
+```shell
+echo "- - -" | tee /sys/class/scsi_host/host*/scan #SCAN NEW SCSI BUS
+pvcreate /dev/sdb #CLOUD00 PV
+vgcreate cloud00 /dev/sdb 
+```
+
 ## Command
 ```shell
 sudo ./create-vm.sh --name VM_NAME --vcpus CPU_COUNT --memory MEMORY_AMOUNT --disk DISK_SIZE --distr ubuntu/centos --ip IP_ADDR --subnet SUBNET_CIDR --gateway DEFAULT_GATEWAY
