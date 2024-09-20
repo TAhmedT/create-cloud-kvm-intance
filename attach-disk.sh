@@ -32,4 +32,4 @@ lvcreate -n cloud00/${VM_NAME}-${BLK_NAME} -L $DISK_SIZE -y
 
 VOLUME_NAME="${ATTACH_DISK_NAME//-/--}"
 
-virsh attach-disk $VM_NAME /dev/mapper/cloud00-${VOLUME_NAME} $BLK_NAME
+virsh attach-disk $VM_NAME /dev/mapper/cloud00-${VOLUME_NAME} $BLK_NAME --persistent
