@@ -1,8 +1,16 @@
 # create-cloud-kvm-intance
 
-## Packages(Ubuntu/Debian)
+## Packages(Ubuntu/Debian/Monjaro)
 ```shell
 sudo apt install qemu-kvm libvirt-daemon-system virtinst libvirt-clients bridge-utils genisoimage
+sudo pacman -S qemu virt-manager libvirt bridge-utils cdrtools
+```
+
+## Libvirt setup
+```shell
+sudo systemctl start libvirtd.service
+sudo systemctl enable --now libvirtd.service
+sudo virsh net-start default
 ```
 
 ## LVM Volume
